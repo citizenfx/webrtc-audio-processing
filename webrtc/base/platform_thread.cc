@@ -60,7 +60,7 @@ bool IsThreadRefEqual(const PlatformThreadRef& a, const PlatformThreadRef& b) {
 void SetCurrentThreadName(const char* name) {
   RTC_DCHECK(strlen(name) < 64);
 #if defined(WEBRTC_WIN)
-  struct {
+  /*struct {
     DWORD dwType;
     LPCSTR szName;
     DWORD dwThreadID;
@@ -71,7 +71,7 @@ void SetCurrentThreadName(const char* name) {
     ::RaiseException(0x406D1388, 0, sizeof(threadname_info) / sizeof(DWORD),
                      reinterpret_cast<ULONG_PTR*>(&threadname_info));
   } __except (EXCEPTION_EXECUTE_HANDLER) {
-  }
+  }*/
 #elif defined(WEBRTC_LINUX) || defined(WEBRTC_ANDROID)
   prctl(PR_SET_NAME, reinterpret_cast<unsigned long>(name));
 #elif defined(WEBRTC_MAC) || defined(WEBRTC_IOS)

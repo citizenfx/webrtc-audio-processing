@@ -12,7 +12,8 @@
 #define WEBRTC_BASE_EVENT_H__
 
 #if defined(WEBRTC_WIN)
-#include "webrtc/base/win32.h"  // NOLINT: consider this a system header.
+#include <winsock2.h>
+#include <windows.h>
 #elif defined(WEBRTC_POSIX)
 #include <pthread.h>
 #else

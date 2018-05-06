@@ -13,7 +13,6 @@
 #include <assert.h>
 
 #if defined(_WIN32)
-#include "webrtc/system_wrappers/source/rw_lock_generic.h"
 #include "webrtc/system_wrappers/source/rw_lock_win.h"
 #else
 #include "webrtc/system_wrappers/source/rw_lock_posix.h"
@@ -28,7 +27,8 @@ RWLockWrapper* RWLockWrapper::CreateRWLock() {
   if (lock) {
     return lock;
   }
-  return new RWLockGeneric();
+  //return new RWLockGeneric();
+  return nullptr;
 #else
   return RWLockPosix::Create();
 #endif
